@@ -1,0 +1,21 @@
+<input type="text" class="form-control" id="txtInout" value="" />
+<span class="unit"><span id="txtCount">0</span>/ <span>60</span></span>
+
+<script>
+$(function () {
+    $("#txtCount").text($("#txtInout").val().replace(/[^\x00-\xff]/g, "00").length);
+    $("#txtInout").keyup(function () {
+        var self = $(this);
+        var num = self.val().replace(/[^\x00-\xff]/g, "00").length;
+        if(num > 60){
+            self.val(self.val().substring(0,self.val().length));
+            $("#txtCount").text(60);
+        }
+        if (num < 0) {
+            $("#txtCount").text(0);
+        } else {
+            $("#txtCount").text(num);
+        }
+    });
+})
+</script>
