@@ -7,10 +7,6 @@ $(function () {
     $("#txtInout").keyup(function () {
         var self = $(this);
         var num = self.val().replace(/[^\x00-\xff]/g, "00").length;
-        if(num > 60){
-            self.val(self.val().substring(0,self.val().length));
-            $("#txtCount").text(60);
-        }
         if (num < 0) {
             $("#txtCount").text(0);
         } else {
